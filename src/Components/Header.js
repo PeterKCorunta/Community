@@ -1,5 +1,7 @@
 import React from 'react'
 
+// MY COMMUNITY HEADER
+
 function Header() {
   return (
     <header className='community_header'>
