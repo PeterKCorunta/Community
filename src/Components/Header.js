@@ -1,6 +1,6 @@
 import React from 'react'
 
-// MY COMMUNITY HEADER COMPONENTS
+// MY COMMUNITY HEADER COMPONENTS IN REACT
 
 function Header() {
   return (
