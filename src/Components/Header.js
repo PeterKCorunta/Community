@@ -14,7 +14,7 @@ function Header() {
 
   useEffect(()=>{
     const nav_length = document.querySelector('.nav_header').children.length
-    var newheight = document.querySelector('.nav_header').clientHeight + (50 * nav_length) 
+    var newheight = document.querySelector('.nav_header').clientHeight + (40 * nav_length) 
     setContainerHeight(newheight) 
   }, [containerHeight])
 
@@ -25,6 +25,7 @@ function Header() {
             <li><a href='#'>Home</a></li>
             <li><a href='#'>History</a></li>
             <li><a href='#'>Projects</a></li>
+            <li><a href='#'>About Us</a></li>
         </ul>
         <h2 className="logo-icon" onClick={handletoggle}>🛒</h2>
     </header>

@@ -64,6 +64,7 @@ a{
     text-align: right;
     float: right;
     z-index: -3;
+    box-shadow: -2px 2px 4px red;
     overflow: hidden;
   }
 .nav_header li{
