@@ -9,12 +9,15 @@ function Header() {
     setIsToggle(!toggle)
   }
   const [containerHeight, setContainerHeight] = useState(0)
+  
+
 
   useEffect(()=>{
-    const originalwidth = document.querySelector('.App').clientWidth
+
     const nav_length = document.querySelector('.nav_header').children.length
-    const newheight = originalwidth===458? document.querySelector('.nav_header').clientHeight + (50 * nav_length) : document.querySelector('.nav_header').clientHeight
+    var newheight = document.querySelector('.nav_header').clientHeight + (50 * nav_length) 
     setContainerHeight(newheight)
+   
   }, [containerHeight])
 
   return (
