@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  width: 100%;
 }
 
 .community_header{
@@ -17,6 +18,7 @@
 
 .logo-icon{
   font-size: 2rem;
+  display: none;
 }
 
 .nav_header{
@@ -39,35 +41,36 @@ a{
 @media only screen and (min-width: 458px) and (max-width: 720px){
   .community_header{
     width: 100%;
-    /* font-size: 0.2rem; */
     background: red;
     color: white;
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+  }
+ .logo-icon{
+    display: block;
   }
   .community_title, .logo-icon{
-    width:100%;
+    /* width:100%; */
     font-size: 100%;
   }
   .nav_header{
-    position: absolute;
+    position: fixed;
     font-size: 50%;
     border:2px solid black;
     background: grey;
     color: white;
     display: block;
     font-size: 100%;
-    /* margin:2px 5px; */
-    top: 2rem;
+    top: 1.8rem;
     right: 0;
-    /* left: 5rem; */
     text-align: right;
     float: right;
+    z-index: -1;
+    overflow: hidden;
   }
 .nav_header li{
-  margin: 1rem 2rem;
-  
+  margin: 1rem 2rem; 
 }
 a{
   font-size: 100%;
