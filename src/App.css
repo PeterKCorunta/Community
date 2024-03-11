@@ -39,7 +39,7 @@ a{
 
 @media only screen and (min-width: 458px) and (max-width: 720px){
   .community_header{
-    background: red;
+    background: linear-gradient(180deg, rgba(150, 50, 0.5, 0.5), rgba(340, 70, 50, 0.5), rgba(150, 50, 0.5, 0.5));
     color: white;
     position: relative;
     display: flex;

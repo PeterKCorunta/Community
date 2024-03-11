@@ -13,11 +13,9 @@ function Header() {
 
 
   useEffect(()=>{
-
     const nav_length = document.querySelector('.nav_header').children.length
     var newheight = document.querySelector('.nav_header').clientHeight + (50 * nav_length) 
-    setContainerHeight(newheight)
-   
+    setContainerHeight(newheight) 
   }, [containerHeight])
 
   return (
