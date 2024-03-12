@@ -1,6 +1,6 @@
 import React from 'react'
 import { articles } from '../Modules/articles'
-import Articles from './articles'
+import Article from './Article'
 
 function ArticleContainer() {
 
@@ -8,7 +8,7 @@ function ArticleContainer() {
 
     <div>
         {articles.map((i, index)=>{
-            return <Articles key={i.author} article={i}/>
+            return <Article key={i.author} article={i}/>
         })}
         
     </div>
