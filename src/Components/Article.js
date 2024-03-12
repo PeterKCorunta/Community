@@ -2,7 +2,7 @@ import React from 'react'
 
 function Article({article}) {
   return (
-    <div>
+    <div className='article_frame'>
         <h2>{article.id}</h2>
         <h3>{article.title}</h3>
         <p>{article.description}</p>
