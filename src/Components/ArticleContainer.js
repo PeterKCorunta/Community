@@ -4,20 +4,28 @@ import Article from './Article'
 import { useState, useEffect } from 'react'
 import { RatioContext } from './RatioContext'
 
-function ArticleContainer() {
+function ArticleContainer({initialWidth}) {
 
-    const [selectedid, setSelectedId] = useState(0)
+    const [selectedid, setSelectedId] = useState(0);
+    const [selectedtext, setSelectedText] = useState("");
 
-    var client_width = useContext(RatioContext)
+    var client_width = Math.ceil(useContext(RatioContext) / 1335)
+
+    function searchTitle(){
+        [...articles].filter(i=>{
+            return (i.title.toLowerCase().includes(selectedtext.toLowerCase())) && setSelectedId(i.id>1?i.id-2:i.id-1)})
+    }
     
   return (
 
     <div className='articlecontainer'>
         <nav className='nav_article'>
             <h2 className='myarticle'>{client_width}</h2>
+            <input type='text' onChange={(e)=>{setSelectedText(e.target.value)}} value={selectedtext} />
+            <button onClick={searchTitle}>Search</button>
             <legend>
                 <button onClick={()=>{(selectedid>=1) && setSelectedId(prev=>prev-1)}}>-</button>
-                <button onClick={()=>{(selectedid<articles.length-2) && setSelectedId(prev=>prev+1)}}>+</button>
+                <button onClick={()=>{(selectedid<articles.length - client_width) && setSelectedId(prev=>prev+1)}}>+</button>
             </legend>
         </nav>
         <div className='article_flexcontainer'>
