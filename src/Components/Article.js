@@ -6,7 +6,7 @@ function Article({article}) {
         <h2>{article.id}</h2>
         <h3>{article.title}</h3>
         <p>{article.description}</p>
-        <h3>{article.author}</h3>
+        <h3 className='author_title'>{article.author}</h3>
     </div>
   )
 }
