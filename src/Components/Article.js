@@ -1,7 +1,4 @@
 import React from 'react'
-import { articles } from '../Modules/articles'
-import { useState, useContext } from 'react'
-import { IdContext } from './IdContext'
 
 function Article({article, handleSearch}) {
     
