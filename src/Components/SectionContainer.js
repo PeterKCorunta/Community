@@ -2,13 +2,9 @@ import React from 'react'
 import { IdContext } from './IdContext'
 import { useContext, useState, useEffect } from 'react'
 
-function SectionContainer({toggle, animCharacter, n, handleAnim, handleaddN}) {
+function SectionContainer({animCharacter, n, handleAnim, handleaddN}) {
     
     const filterContextlist = useContext(IdContext)
-
-    const Greeting = ({text}) =>{
-        return <p className='edition'>{text}</p>
-    } 
 
     useEffect(()=>{
         const characterfilter = (text) =>{
@@ -29,7 +25,7 @@ function SectionContainer({toggle, animCharacter, n, handleAnim, handleaddN}) {
         return(()=>{
             clearInterval(timerId)
         })
-    }, [animCharacter])
+    }, [animCharacter, n])
 
   return (
     <ul className='sectionlist'>
@@ -40,8 +36,7 @@ function SectionContainer({toggle, animCharacter, n, handleAnim, handleaddN}) {
                    </li>
         })}
         
-        <div className={`slide ${toggle? 'slidein': 'slideout'}`}><Greeting text={"Welcome to my new edition"}/></div>
-        <div className={`slide ${toggle? 'slideindelay': 'slideoutdelay'}`}><Greeting text={"I'm so glad you could join our community and make a lot of contributions"}/></div>
+        
         <p className='lesson'>{animCharacter}</p>
     </ul>
   )
