@@ -2,7 +2,7 @@ import React from 'react'
 
 function History() {
   return (
-    <section className='section_history'>
+    <section id='history' className='section_history'>
         <h2 className='history_title'>HISTORY</h2>
         <legend>
             <p className='writeup'>Nothing comes closer to great achievements in our 
