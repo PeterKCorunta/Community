@@ -23,8 +23,8 @@ function Header() {
         <h1 className='community_title'>My Community</h1>
         <ul className='nav_header' style={toggle? {height: `${containerHeight}px`, transition: 'height 1s ease'}:{height:'0%', transition: 'height 1s ease'}}>
             <li><a href='#'>Home</a></li>
-            <li><a href='#'>History</a></li>
-            <li><a href='#'>Projects</a></li>
+            <li><a href='#history'>History</a></li>
+            <li><a href='#projects'>Projects</a></li>
             <li><a href='#'>About Us</a></li>
         </ul>
         <h2 className="logo-icon" onClick={handletoggle}>🛒</h2>
