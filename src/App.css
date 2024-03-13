@@ -80,6 +80,13 @@ a{
 
 .edition{
   width: max-content;
+  margin: 10px 20px;
+  display: block;
+  text-align: left;
+  padding: auto 5px;
+  line-height: 2rem;
+  font-size: 1.1rem;
+  color: rgba(255, 255,255, 0.8)
 }
 
 .desc_section{
@@ -103,6 +110,26 @@ a{
   background-position: 20px 75px;
 }
 
+.projects_container{
+  width: 90%;
+  margin: 50px auto;
+  display: block;
+  border: 2px solid;
+  border-radius: 10px;
+  box-shadow: 15px 15px 25px rgba(0,0,0,0.8);
+  background: linear-gradient(180deg, rgba(255,255,0,0.5), rgba(255, 255, 255, 0.5), rgba(255,255,0,0.5));
+  background-image: url(../src/Pictures/pic1.jpg);
+  background-size: cover;
+  background-position: 20px 75px;
+  overflow: hidden;
+}
+
+.projects_title{
+  letter-spacing: 1.1rem;
+  color:white;
+  text-shadow: 2px 2px 5px red;
+}
+
 legend{
   border-top: 2px solid;
 
@@ -115,7 +142,7 @@ legend{
   display: block;
   width:88%;
   line-height: 1.5rem;
-  margin: -80px auto;
+  margin: auto;
   text-align: left;
 }
 
@@ -145,6 +172,23 @@ legend{
   transition: all 2s ease;
 }
 
+.slide_gallery{
+  /* transform: translateX(-100%); */
+  width: 30%;
+  height:30%;
+  margin-left: 30px;
+  color: white;
+  /* background: white; */
+  transition: all 2s ease;
+}
+
+.gallery_img{
+  width: 50%;
+  height:100px;
+  display: inline-block;
+  margin: auto -55px;
+}
+
 .slidein{
   transform: translateX(0);
   transition: transform 2s ease;
@@ -158,6 +202,16 @@ legend{
 .slideoutdelay{
   transform: translateX(-120%);
   transition: transform 2s ease 2s;
+}
+
+.slideindelay2{
+  transform: translateX(0);
+  transition: transform 2s ease 4s;
+}
+
+.slideoutdelay2{
+  transform: translateX(-120%);
+  transition: transform 2s ease 4s;
 }
 .slideout{
   transform: translateX(-120%);
