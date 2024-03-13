@@ -66,12 +66,102 @@ a{
   border-left: 10px solid black;
   height: 350px;
   margin: 10px;
+  overflow: hidden;
 }
 
 .sectiontitle{
   text-transform: uppercase;
   text-decoration: underline;
   color: white;
+  display: block;
+  text-align: left;
+  width:88%;
+}
+
+.edition{
+  width: max-content;
+}
+
+.desc_section{
+  color: white;
+  text-align: left;
+  width:100%;
+  display: block;
+  /* margin: -20px auto; */
+}
+
+.section_history{
+  width: 90%;
+  margin: 10px auto;
+  display: block;
+  border: 2px solid;
+  border-radius: 10px;
+  box-shadow: 15px 15px 25px rgba(0,0,0,0.8);
+  background: linear-gradient(180deg, rgba(255,255,0,0.5), rgba(255, 255, 255, 0.5), rgba(255,255,0,0.5));
+  background-image: url(../src/Pictures/pic1.jpg);
+  background-size: cover;
+  background-position: 20px 75px;
+}
+
+legend{
+  border-top: 2px solid;
+
+  border-radius: 10px;
+  padding: auto 20px;
+}
+
+.lesson{
+  color: rgb(255, 255, 255);
+  display: block;
+  width:88%;
+  line-height: 1.5rem;
+  margin: -80px auto;
+  text-align: left;
+}
+
+.writeup{
+  width: 95%;
+  margin: auto;
+  display: block;
+  text-align: left;
+  padding: auto 5px;
+  line-height: 2rem;
+  font-size: 1.1rem;
+  color: rgba(255, 255,255, 0.8)
+
+}
+
+.history_title{
+  letter-spacing: 1.1rem;
+  color:white;
+  text-shadow: 2px 2px 5px red;
+}
+
+.slide{
+  /* transform: translateX(-100%); */
+  width: max-content;
+  color: white;
+  /* background: white; */
+  transition: all 2s ease;
+}
+
+.slidein{
+  transform: translateX(0);
+  transition: transform 2s ease;
+}
+
+.slideindelay{
+  transform: translateX(0);
+  transition: transform 2s ease 2s;
+}
+
+.slideoutdelay{
+  transform: translateX(-120%);
+  transition: transform 2s ease 2s;
+}
+.slideout{
+  transform: translateX(-120%);
+  transition: transform 2s ease;
 }
 
 .first_layer{
