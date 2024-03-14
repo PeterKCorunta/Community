@@ -16,16 +16,17 @@ function SectionContainer({animCharacter, n, handleAnim, handleaddN}) {
             }
             else{
                 handleaddN(0)
+                clearTimeout(timerId)
             }
 
         }
 
-        const timerId = setInterval(characterfilter, 75)
+        const timerId = setTimeout(characterfilter, 75)
 
         return(()=>{
-            clearInterval(timerId)
+            clearTimeout(timerId)
         })
-    }, [animCharacter, n])
+    }, [animCharacter])
 
   return (
     <ul className='sectionlist'>
