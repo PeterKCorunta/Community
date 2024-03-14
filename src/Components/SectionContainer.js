@@ -1,6 +1,6 @@
 import React from 'react'
 import { IdContext } from './IdContext'
-import { useContext, useState, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 
 function SectionContainer({animCharacter, n, handleAnim, handleaddN}) {
     
