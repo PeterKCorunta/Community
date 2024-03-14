@@ -90,7 +90,7 @@ function App() {
       <Projects toggle={scrollY >= 290} />
       <div className='main_sliderContainer'>
         <nav className='navSliderBtns'>
-          <button onClick={()=>{imageid>0 && setImageId(n=>n-1)}}>-</button>
+          <button onClick={()=>{imageid>0 ? setImageId(n=>n-1):setImageId(n=>n=slides.length-1)}}>-</button>
           <button onClick={()=>{(imageid<slides.length)?setImageId(n=>n+1):setImageId(n=>n=1)}}>+</button>
         </nav>
         <div className='slider_flexContainer'>
