@@ -5,10 +5,12 @@ import ArticleContainer from './Components/ArticleContainer';
 import { useState, useEffect } from 'react';
 import { RatioContext } from './Components/RatioContext';
 import { IdContext } from './Components/IdContext';
-import { articles } from './Modules/articles';
+import { articles} from './Modules/articles';
 import SectionContainer from './Components/SectionContainer';
 import History from './Components/History';
 import Projects from './Components/Projects';
+import Slider from './Components/Slider';
+import { slides } from './Modules/slides';
 
 function App() {
   const [toggle, setToggle] = useState(false)
@@ -16,6 +18,8 @@ function App() {
   const [animCharacter, setAnimCharacter] = useState("")
   const [n, setN] = useState(0)
   const [scrollY, setScrollY] = useState(window.scrollY);
+  const [imageid, setImageId] = useState(0);
+  const [imageidx, setImageIdx] = useState(0);
 
   function filterlist(selectedtitleId){
     const filteredlist = [...articles].filter(i=>{
@@ -82,8 +86,20 @@ function App() {
         </IdContext.Provider>
       </RatioContext.Provider>
       <History/>
-      {scrollY}
+      {/* {scrollY} */}
       <Projects toggle={scrollY >= 290} />
+      <div className='main_sliderContainer'>
+        <nav className='navSliderBtns'>
+          <button onClick={()=>{imageid>0 && setImageId(n=>n-1)}}>-</button>
+          <button onClick={()=>{(imageid<slides.length)?setImageId(n=>n+1):setImageId(n=>n=1)}}>+</button>
+        </nav>
+        <div className='slider_flexContainer'>
+           {slides.map(i=>{
+            return  <Slider key={i.id} slide={i} imageno={imageid} nox={imageidx}/>      
+      })}
+       </div>
+      </div>
+      
       <Footer/>
     </div>
   );
