@@ -89,6 +89,48 @@ a{
   color: rgba(255, 255,255, 0.8)
 }
 
+.mygallery{
+  display: flex;
+  justify-content: space-evenly;
+  gap:4rem;
+  width:100%;
+  /* border: 1px solid white; */
+}
+
+.slider_flexContainer{
+  display: flex;
+  width:15%;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 50px auto;
+  border: 1px solid;
+  overflow: hidden;
+  /* display: block; */
+}
+
+.view_out{
+  z-index: -999;
+  /* transform: translateY(-500px); */
+  /* opacity: 0; */
+  /* visibility: hidden; */
+  /* transition: all 1s ease; */
+}
+
+.slide_img{
+  width: 200px;
+  height:200px;
+}
+
+.slider_container{
+  width: 100%;
+  /* opacity: 0; */
+  /* transform: translateX(-100%); */
+  /* transform: translateX(400%); */
+  transition: all 1s ease ;
+  
+}
+
 .desc_section{
   color: white;
   text-align: left;
@@ -122,6 +164,7 @@ a{
   background-size: cover;
   background-position: 20px 75px;
   overflow: hidden;
+  margin-bottom: 100px;
 }
 
 .projects_title{
@@ -132,15 +175,18 @@ a{
 
 legend{
   border-top: 2px solid;
-
   border-radius: 10px;
   padding: auto 20px;
+}
+
+.history_legend{
+  padding: 40px;
 }
 
 .lesson{
   color: rgb(255, 255, 255);
   display: block;
-  width:88%;
+  width: 88%;
   line-height: 1.5rem;
   margin: auto;
   text-align: left;
@@ -174,19 +220,46 @@ legend{
 
 .slide_gallery{
   /* transform: translateX(-100%); */
-  width: 30%;
+  width: 80%;
   height:30%;
   margin-left: 30px;
+  margin: 2rem auto;
   color: white;
   /* background: white; */
   transition: all 2s ease;
 }
 
+.fade_text{
+  width: 100%;
+  margin:2rem auto;
+  font-size: 2rem;
+  opacity: 0;
+  transition: all 4s ease;
+}
+
+.fadeIn{
+  opacity: 1;
+  transition: opacity 4s ease 6s;
+}
+
+.fadeOut{
+  opacity: 0;
+  transition: opacity 4s ease 6s;
+}
+
+.captionImg{
+  font-size: 1rem;
+  /* -webkit-text-stroke: 1px white; */
+  color: white;
+}
+
 .gallery_img{
-  width: 50%;
+  width: 100%;
   height:100px;
   display: inline-block;
-  margin: auto -55px;
+  margin: auto;
+  border: 1px solid white;
+  border-radius: 20px;
 }
 
 .slidein{
