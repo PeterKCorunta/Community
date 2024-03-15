@@ -2,7 +2,7 @@ import './App.css';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import ArticleContainer from './Components/ArticleContainer';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { RatioContext } from './Components/RatioContext';
 import { IdContext } from './Components/IdContext';
 import { articles} from './Modules/articles';
@@ -11,6 +11,7 @@ import History from './Components/History';
 import Projects from './Components/Projects';
 import Slider from './Components/Slider';
 import { slides } from './Modules/slides';
+import { SlideContext } from './SlideContext';
 
 function App() {
   const [toggle, setToggle] = useState(false)
@@ -20,6 +21,8 @@ function App() {
   const [scrollY, setScrollY] = useState(window.scrollY);
   const [imageid, setImageId] = useState(0);
   const [imageidx, setImageIdx] = useState(0);
+  const [slidepics, setSlidepics] = useState(slides)
+  const [picid, setPicId] = useState(0)
 
   function filterlist(selectedtitleId){
     const filteredlist = [...articles].filter(i=>{
@@ -73,6 +76,14 @@ function App() {
     };
     }, [scrollY]); // Empty dependency array ensures the effect runs only once on mount
   
+    const AddSlide = (id_slide) =>{
+      const filteredSlide = slides.filter(i=>{return i.pic === slides[(id_slide >= slides.length)?( id_slide % (slides.length-1)) : id_slide].pic});
+      //const add_slide = [...filteredSlide, {id: id_slide, pic: slides[(id_slide >= slides.length)?( id_slide % (slides.length-1)) : id_slide].pic}]
+      setSlidepics(prev=>([...prev, ...filteredSlide]))
+      // setSlidepics(prev=>(
+      //   [...prev, {id: id_slide, pic: slides[(id_slide >= slides.length)?( id_slide % (slides.length-1)) : id_slide].pic}]
+      //   ))
+    }
 
   return (
     <div className="App">
@@ -92,12 +103,18 @@ function App() {
         <nav className='navSliderBtns'>
           <button onClick={()=>{imageid>0 ? setImageId(n=>n-1):setImageId(n=>n=slides.length-1)}}>-</button>
           <button onClick={()=>{(imageid<slides.length)?setImageId(n=>n+1):setImageId(n=>n=1)}}>+</button>
+          <button onClick={()=>{setPicId(n=>n+1); AddSlide(picid)}}>Slide</button>
         </nav>
-        <div className='slider_flexContainer'>
+        <SlideContext.Provider value={slidepics}>
+          <Slider imageno={picid} />
+        </SlideContext.Provider>
+        {slides.length}
+        {/* <div className='slider_flexContainer'>
            {slides.map(i=>{
             return  <Slider key={i.id} slide={i} imageno={imageid} nox={imageidx}/>      
       })}
-       </div>
+      
+       </div> */}
       </div>
       
       <Footer/>
