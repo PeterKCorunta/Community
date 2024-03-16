@@ -146,6 +146,7 @@ a{
 .slide_img{
   width: 200px;
   height:200px;
+  border-radius: 10px;
 }
 
 .slider_container{
@@ -153,6 +154,8 @@ a{
   margin: auto;
   border-radius: 10px;
   box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.7);
+  padding: 2px 2px;
+  height: 210px;
   /* opacity: 0; */
   /* transform: translateX(-100%); */
   /* transform: translateX(400%); */
@@ -163,29 +166,59 @@ a{
 .slider_container{
   display: flex;
   overflow: hidden ;
-  border:2px solid white;
+  border:2px solid rgba(0, 0, 0, 0.8);
 
 }
 
 .slide_item{
   border-radius: 10px;
   box-shadow: 5px, 5px, inset white;
-  border: 1px solid black;
-  margin: 0.5px 0.1px;
+  border: 1px solid white;
+  margin: auto 0.1px;
   display: inline-block;
   width:100%;
 }
 
 .navSliderBtns{
   display: flex;
-  width: 61.175%;
+  width: 61%;
+  justify-content: flex-start;
+  align-items: baseline;
   margin: auto;
+  border: 1px solid;
+  height: max-content;
+  background: rgba(0,0,0,0.3);
 }
 
 .gallery_legend{
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+  height: 3rem;
+  margin: 1.3rem 2rem;
+  padding:1rem;
+  width: auto;
+}
+
+.gallery_title{
+  letter-spacing: 1.1rem;
+  color:white;
+  text-shadow: 2px 2px 5px red;
+  
+  text-transform: uppercase;
+  width:100%;
+}
+
+.remove, .add{
+  letter-spacing: 0.5rem;
+  color:white;
+  text-shadow: 2px 2px 5px red;
+  margin: 1.3rem 2rem;
+  padding:1rem;
+  height: 3rem;
+  width: max-content;
+  text-transform: uppercase;
 }
 
 .desc_section{
