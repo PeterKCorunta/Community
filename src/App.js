@@ -11,7 +11,7 @@ import History from './Components/History';
 import Projects from './Components/Projects';
 import Slider from './Components/Slider';
 import { slides } from './Modules/slides';
-import { SlideContext } from './SlideContext';
+import { SlideContext } from './Components/SlideContext';
 
 function App() {
   const [toggle, setToggle] = useState(false)
@@ -23,6 +23,7 @@ function App() {
   const [imageidx, setImageIdx] = useState(0);
   const [slidepics, setSlidepics] = useState(slides)
   const [picid, setPicId] = useState(0)
+  const [slideleft, setSlideLeft] = useState(false)
 
   function filterlist(selectedtitleId){
     const filteredlist = [...articles].filter(i=>{
@@ -76,13 +77,51 @@ function App() {
     };
     }, [scrollY]); // Empty dependency array ensures the effect runs only once on mount
   
-    const AddSlide = (id_slide) =>{
-      const filteredSlide = slides.filter(i=>{return i.pic === slides[(id_slide >= slides.length)?( id_slide % (slides.length-1)) : id_slide].pic});
-      //const add_slide = [...filteredSlide, {id: id_slide, pic: slides[(id_slide >= slides.length)?( id_slide % (slides.length-1)) : id_slide].pic}]
-      setSlidepics(prev=>([...prev, ...filteredSlide]))
-      // setSlidepics(prev=>(
-      //   [...prev, {id: id_slide, pic: slides[(id_slide >= slides.length)?( id_slide % (slides.length-1)) : id_slide].pic}]
-      //   ))
+    const AddSlide = (id_slide) =>{ 
+      
+      setSlideLeft(false)
+      // slidepics.forEach((i, index)=>{
+        // return (((i.id !== id_slide)) && 
+        setSlidepics(prev=>([...prev, {id: id_slide, pic: slides[(id_slide >= slides.length)?( id_slide % (slides.length)) : id_slide].pic}]))
+      // })
+      
+    }
+
+    
+    const RemoveSlide = (id_slide) =>{
+      
+      // const myslide = [...slidepics].filter(i=>{
+      //   return (i.id===id_slide)? i : [...slidepics, {id: id_slide - 1, pic: slides[(id_slide <= 0)?((slides.length)+ id_slide) : id_slide].pic}]
+      // })
+      
+      // setSlidepics(myslide)
+      setSlideLeft(true)
+      
+      
+    }
+    
+    const updateSlide = (mySlide, id_slide) =>{
+      
+      // const modifySlide = mySlide.filter(i=>{
+      //   return (i.id !== id_slide)
+      // })
+
+      // setSlidepics([...modifySlide])
+      // AddSlide(id_slide)
+
+      // if (e.target.id <= id_slide) {
+      //   // e.target.setAttribute('style', `transform: translate(${(slides.length - e.target.id) * 100}%)`);
+      //    e.target.setAttribute('id', id_slide + slides.length)
+      //    e.target.remove()
+      //    AddSlide(id_slide)
+      //   // console.log(e.target)
+      //   // console.log(e.target.children.length)
+       
+      // }
+      // else{
+      // }
+      // setSlidepics(([...modifySlide]))
+      // console.log(slidepics)
     }
 
   return (
@@ -101,12 +140,12 @@ function App() {
       <Projects toggle={scrollY >= 290} />
       <div className='main_sliderContainer'>
         <nav className='navSliderBtns'>
-          <button onClick={()=>{imageid>0 ? setImageId(n=>n-1):setImageId(n=>n=slides.length-1)}}>-</button>
-          <button onClick={()=>{(imageid<slides.length)?setImageId(n=>n+1):setImageId(n=>n=1)}}>+</button>
-          <button onClick={()=>{setPicId(n=>n+1); AddSlide(picid)}}>Slide</button>
+          <legend className='gallery_legend'><h2>Gallery</h2></legend>
+          <button onClick={()=>{(picid >=1 ) && setPicId(n=>n-1); RemoveSlide(picid)}}>Remove</button>
+          <button onClick={()=>{setPicId(n=>n+1); AddSlide(picid)}}>Add</button>
         </nav>
         <SlideContext.Provider value={slidepics}>
-          <Slider imageno={picid} />
+          <Slider imageno={picid} slideUpdate={updateSlide} toggle={slideleft}/>
         </SlideContext.Provider>
         {slides.length}
         {/* <div className='slider_flexContainer'>
