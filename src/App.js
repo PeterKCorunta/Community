@@ -140,9 +140,9 @@ function App() {
       <Projects toggle={scrollY >= 290} />
       <div className='main_sliderContainer'>
         <nav className='navSliderBtns'>
-          <legend className='gallery_legend'><h2>Gallery</h2></legend>
-          <button onClick={()=>{(picid >=1 ) && setPicId(n=>n-1); RemoveSlide(picid)}}>Remove</button>
-          <button onClick={()=>{setPicId(n=>n+1); AddSlide(picid)}}>Add</button>
+          <legend className='gallery_legend'><h2 className='gallery_title'>Gallery</h2></legend>
+          <button className='remove' onClick={()=>{(picid >=1 ) && setPicId(n=>n-1); RemoveSlide(picid)}}>Remove</button>
+          <button className='add' onClick={()=>{setPicId(n=>n+1); AddSlide(picid)}}>Add</button>
         </nav>
         <SlideContext.Provider value={slidepics}>
           <Slider imageno={picid} slideUpdate={updateSlide} toggle={slideleft}/>
