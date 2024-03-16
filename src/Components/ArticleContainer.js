@@ -20,7 +20,7 @@ function ArticleContainer({initialWidth, handleSearch}) {
 
     <div className='articlecontainer'>
         <nav className='nav_article'>
-            <h2 className='myarticle'>Search</h2>
+            {/* <h2 className='myarticle'>Search</h2> */}
             <input className='search_title' type='text' placeholder="Enter title" onChange={(e)=>{setSelectedText(e.target.value)}} value={selectedtext} />
             <button className='searchBtn' onClick={searchTitle}>Search</button>
             <legend>
