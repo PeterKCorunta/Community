@@ -12,6 +12,7 @@ import Projects from './Components/Projects';
 import Slider from './Components/Slider';
 import { slides } from './Modules/slides';
 import { SlideContext } from './Components/SlideContext';
+// import { Button } from '@react-ui-org/react-ui'
 
 function App() {
   const [toggle, setToggle] = useState(false)
@@ -80,35 +81,33 @@ function App() {
     const AddSlide = (id_slide) =>{ 
       
       setSlideLeft(false)
-      // slidepics.forEach((i, index)=>{
-        // return (((i.id !== id_slide)) && 
-        setSlidepics(prev=>([...prev, {id: id_slide, pic: slides[(id_slide >= slides.length)?( id_slide % (slides.length)) : id_slide].pic}]))
-      // })
-      
+         setSlidepics(prev=>([...[...prev].filter(i=>{return i.pic !== slides[(id_slide >= slides.length)?( id_slide-1 % (slides.length)) : id_slide-1].pic}), {id: id_slide, pic: slides[(id_slide >= slides.length)?( id_slide-1 % (slides.length)) : id_slide-1].pic}]))
+        //setSlidepics(prev=>([...prev, {id: id_slide, pic: slides[(id_slide >= slides.length)?( id_slide-1 % (slides.length)) : id_slide-1].pic}]))
+  
+      console.log(slidepics)
     }
 
     
     const RemoveSlide = (id_slide) =>{
-      
-      // const myslide = [...slidepics].filter(i=>{
-      //   return (i.id===id_slide)? i : [...slidepics, {id: id_slide - 1, pic: slides[(id_slide <= 0)?((slides.length)+ id_slide) : id_slide].pic}]
-      // })
-      
-      // setSlidepics(myslide)
       setSlideLeft(true)
+      
+      // setSlidepics(prev=>([{id: id_slide, pic: slides[(id_slide >= slides.length)?( id_slide-1 % (slides.length)) : id_slide-1].pic}, ...[...prev].filter(i=>{return i.id !== id_slide})]))
+      // setSlidepics(prev=>([{id: id_slide, pic: slides[(id_slide >= slides.length)?( id_slide % (slides.length)) : id_slide].pic}, ...prev]))
+      
+      
       
       
     }
     
-    const updateSlide = (mySlide, id_slide) =>{
+    const updateSlide = (id_slide) =>{
       
       // const modifySlide = mySlide.filter(i=>{
       //   return (i.id !== id_slide)
       // })
 
       // setSlidepics([...modifySlide])
-      // AddSlide(id_slide)
-
+      //  AddSlide(id_slide)
+      // setSlidepics(prev=>([...[...prev].filter(i=>{return i.id > id_slide}), {id: id_slide, pic: slides[(id_slide >= slides.length)?( id_slide % (slides.length)) : id_slide].pic}]))
       // if (e.target.id <= id_slide) {
       //   // e.target.setAttribute('style', `transform: translate(${(slides.length - e.target.id) * 100}%)`);
       //    e.target.setAttribute('id', id_slide + slides.length)
@@ -116,7 +115,7 @@ function App() {
       //    AddSlide(id_slide)
       //   // console.log(e.target)
       //   // console.log(e.target.children.length)
-       
+      //  setPicId(n=>id_slide-1)
       // }
       // else{
       // }
@@ -141,21 +140,16 @@ function App() {
       <div className='main_sliderContainer'>
         <nav className='navSliderBtns'>
           <legend className='gallery_legend'><h2 className='gallery_title'>Gallery</h2></legend>
-          <button className='remove' onClick={()=>{(picid >=1 ) && setPicId(n=>n-1); RemoveSlide(picid)}}>Remove</button>
-          <button className='add' onClick={()=>{setPicId(n=>n+1); AddSlide(picid)}}>Add</button>
+          <button className='remove' onClick={()=>{(picid >=1 ) && setPicId(n=>n-1); RemoveSlide(picid % slides.length+1)}}>PREVIOUS</button>
+          <button className='add' onClick={()=>{setPicId(n=>n+1); AddSlide(picid % slides.length+1)}}>NEXT</button>
         </nav>
         <SlideContext.Provider value={slidepics}>
-          <Slider imageno={picid} slideUpdate={updateSlide} toggle={slideleft}/>
+          <Slider imageno={picid % slides.length+1} slideUpdate={updateSlide} toggle={slideleft}/>
         </SlideContext.Provider>
-        {slides.length}
-        {/* <div className='slider_flexContainer'>
-           {slides.map(i=>{
-            return  <Slider key={i.id} slide={i} imageno={imageid} nox={imageidx}/>      
-      })}
-      
-       </div> */}
+        {`Length is: ${picid % slides.length+1}`}
+       
       </div>
-      
+      <legend>Great day</legend>
       <Footer/>
     </div>
   );
