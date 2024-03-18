@@ -143,10 +143,13 @@ a{
   /* transition: all 1s ease; */
 }
 
+
+
 .slide_img{
   width: 200px;
   height:200px;
   border-radius: 10px;
+  transition: all 1.5s ease;
 }
 
 .slider_container{
